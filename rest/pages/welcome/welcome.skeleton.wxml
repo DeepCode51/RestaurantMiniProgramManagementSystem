@@ -1,0 +1,25 @@
+<!--
+此文件为开发者工具生成，生成时间: 2023/4/23下午10:51:08
+使用方法：
+在 C:\Users\19471\Desktop\rest\pages\welcome\welcome.wxml 引入模板
+
+```
+<import src="welcome.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{loading}}" />
+```
+
+在 C:\Users\19471\Desktop\rest\pages\welcome\welcome.wxss 中引入样式
+```
+@import "./welcome.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="main" data-ib-structured-id="0">
+      <view class="tt sk-transparent sk-text-14-2857-197 sk-text" data-ib-structured-id="1">欢迎进入星餐厅点餐系统</view>
+      <button class="btn __ib-selected-node sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-ib-structured-id="2" style="position: relative; left: 0px; top: 11px">进入点菜</button>
+    </view>
+  </view>
+</template>

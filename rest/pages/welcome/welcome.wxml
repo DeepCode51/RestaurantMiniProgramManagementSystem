@@ -1,0 +1,12 @@
+<!--pages/welcome/welcome.wxml-->
+<!--背景图片-->
+<view>
+
+
+</view>
+<view class="main" bindanimationend="onPullDownRefresh">
+  <view class="tt">欢迎进入星餐厅点餐系统</view>
+  <button class="btn" bindtap="welcome" style="position: relative; left: 0rpx; top: 20rpx">进入点菜</button>
+
+  
+</view>

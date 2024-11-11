@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+    <link rel="icon" th:href="@{/img/default.ico}" type="image/x-icon">
+</head>
+<body>
+<form class="layui-form" method="post" enctype="multipart/form-data" content="multipart/form-data">
+    <div class="layui-form-item" style="margin-top: 10px;">
+
+        <div class="layui-inline">
+            <label class="layui-form-label">账号</label>
+            <div class="layui-input-inline">
+                <input type="tel" name="raccount"  autocomplete="off" class="layui-input"  lay-verify="required" >
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item" style="margin-top: 10px;">
+
+        <div class="layui-inline">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input type="password" name="rpassword"  autocomplete="off" class="layui-input"  lay-verify="required" >
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+
+        <div class="layui-inline">
+            <label class="layui-form-label">店铺名称</label>
+            <div class="layui-input-inline">
+                <input type="tel" name="rname"  autocomplete="off" class="layui-input"  >
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+
+        <div class="layui-inline">
+            <label class="layui-form-label">法人</label>
+            <div class="layui-input-inline">
+                <input type="tel" name="rperson"  autocomplete="off" class="layui-input"  >
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+
+        <div class="layui-inline">
+            <label class="layui-form-label">联系电话</label>
+            <div class="layui-input-inline">
+                <input type="tel" name="rtel"  autocomplete="off" class="layui-input"  >
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+
+        <div class="layui-inline">
+            <label class="layui-form-label">地址</label>
+            <div class="layui-input-inline">
+                <input type="tel" name="rplace"  autocomplete="off" class="layui-input"  >
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 10px;">
+
+        <div class="layui-inline">
+            <label class="layui-form-label">介绍</label>
+            <div class="layui-input-inline">
+                <input type="tel" name="rintro"  autocomplete="off" class="layui-input"  >
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit lay-filter="submitbtn">提交</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script th:src="@{https://code.jquery.com/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/layui/layui.js}"></script>
+
+<script th:inline="javascript">
+    let contextpath = [[@{/}]];
+    layui.use('form', function(){
+        var form = layui.form;
+        form.render();
+
+        form.on('submit(submitbtn)', function (data) {
+
+            console.log(data)
+            var url = contextpath + 'admin/rest/admin_rest_insert.do';
+            var params={
+                raccount:data.field.raccount,
+                rpassword:data.field.rpassword,
+                rname:data.field.rname,
+                rperson:data.field.rperson,
+                rtel:data.field.rtel,
+                rplace:data.field.rplace,
+                rintro:data.field.rintro
+            }
+            $.post(url,params,function (response) {
+
+                console.log(response)
+                if (response == 0){
+                    parent.layer.msg("添加失败",{time: 1000})
+                }else {
+                    parent.layer.msg("添加成功", {time: 1000})
+                    var iframeIndex = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(iframeIndex);
+                    parent.layui.table.reload('admin_rest_list')
+
+                }
+            })
+            return false
+        })
+    })
+</script>
+</body>
+</html>

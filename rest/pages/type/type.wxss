@@ -1,0 +1,133 @@
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  
+}
+page {
+  background-color: rgb(243, 243, 243);
+}
+.menu{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #225599;
+  /* justify-content: start; */
+  align-items: center;
+  position: fixed;/*狗贼absoule没用，它是相对于父元素的绝对定位，不同于网页css是相对于浏览器的*/
+  bottom: 0;
+
+
+}
+ .classtype{
+    margin: 16rpx 0;
+}
+.classtype text{
+    color: white;
+    font-weight: 500;
+}
+.list{
+   width: 80%;
+   display: flex;
+   flex-direction: column;
+   margin-left:20%;
+}
+
+.list .productlist{
+  margin-left: 10%;
+  height: 150rpx;
+  width: 98%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1rpx solid gray; */
+  margin:10rpx 0;
+  border-radius: 10rpx;
+  background-color: white;
+}
+image{
+  width: 300rpx;
+}
+.info{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.myview{
+  width: 30%;
+  display: flex;
+  /* border:1rpx solid black; */
+  margin-left: 70%;
+}
+.btn{
+ width: 40rpx;
+ height: 40rpx;
+}
+.bottom{
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 80%;
+  margin-left: 20%;
+  height: 120rpx;
+  background-color: white;
+  /* fef4d1 */
+  /* margin-top: 60%; */
+  
+}
+.total{
+  width: 70%;
+  height: 100%;
+  /* border:1rpx solid black; */
+  line-height: 350%;
+  text-align: center;
+}
+.end{
+  width: 30%;
+  height: 100%;
+  /* border:1rpx solid blu; */
+ line-height: 400%;
+  text-align: center;
+  background-color: #225599;
+  color: white;
+}
+.cart_left{
+  width: 20%;
+  height: 100%;
+}
+.cartimg{
+  width: 100%;
+  height: 100%;
+}
+.cartlist{
+  position:fixed;
+  width: 80%;
+  height: 30vh;
+  margin-left: 20%;
+  background-color: white;
+  bottom: 120rpx;
+  /* display: none; */
+}
+.list1{
+  width: 80%;
+  display: flex;
+  height: 30vh;
+  flex-direction: column;
+  margin-left:10%;
+}
+.list1 .productlist{
+  margin-left: 10%;
+  height: 150rpx;
+  width: 98%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1rpx solid gray;
+  margin:10rpx 0;
+  border-radius: 10rpx;
+  background-color: white;
+}

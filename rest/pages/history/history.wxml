@@ -1,0 +1,17 @@
+<!--pages/cart/cart.wxml-->
+<view class="none" wx:if="{{hislist==''}}">
+<image src="cloud://cloud1-0gx32eqdfc662756.636c-cloud1-0gx32eqdfc662756-1307583091/ss_img/hisempty.png" mode="aspectFill"></image>
+  <text class="none1">您还没有消费记录哦~</text>
+</view>
+
+
+<navigator class="list" url="/pages/detail/detail?id={{item.bookid}}" wx:for="{{hislist}}" wx:key="{{index}}">
+      <view class="info">
+          <text class="name">{{item.raccount}}</text>
+          <text class="publish">订单时间：{{item.createtime}}</text>
+          <text class="publish">订单金额：{{item.totalprice}}</text>
+          <text class="publish">订单状态：{{item.stat}}</text>
+      </view>
+</navigator>
+
+

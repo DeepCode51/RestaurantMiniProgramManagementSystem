@@ -1,0 +1,50 @@
+ <!--大容器-->
+ <view class="container">
+          <!--菜单-->
+          <view class="menu">
+               <!--展示分类-->
+               <view id="{{item.id}}" class="classtype" data-type="{{item.menutype}}" bindtap="searchtab" wx:for="{{classtype}}" wx:key="{{index}}">
+                        <text>{{item.menutype}}</text>
+               </view>
+          </view>
+          <!--产品列表-->
+          <scroll-view class="list" scroll-y="true"enable-flex="true">
+                <view class="productlist"  wx:for="{{booklist}}" wx:key="{{index}}">
+                       <image src="{{imgurl+item.image}}" mode="widthFix"></image>
+                       <view class="info">
+                              <text>{{item.name}}</text>
+                              <text class="author">￥{{item.price}} 元</text>
+                              
+                            <view class="myview"  >
+                            <image src="/images/jian.png" class="btn" bindtap="decrease" data-price="{{item.price}}" data-sname="{{item.id}}"></image>
+                            <text>{{item.num}}</text>
+                            <image src="/images/jia.png" class="btn" bindtap="increase" data-price="{{item.price}}" data-sname="{{item.id}}"></image>
+                            </view>
+                       </view>
+                </view>
+          </scroll-view>
+         
+</view>
+<view class="bottom">
+          <view class="cart_left"><image class="cartimg" src="/images/cart.png" mode="widthFix" bindtap="listcart"></image></view>
+          <view class="total">总计{{totalprice}}元</view>
+          <view class="end" bindtap="submit1">立即下单</view>
+ </view>
+ <view class="cartlist" id="cartlist" hidden="{{isHiddens}}" >
+          <scroll-view class="list1" scroll-y="true"enable-flex="true">
+               <view class="empty" wx:if="{{cartlist==''}}">空空如也~</view>
+               <view class="productlist"  wx:for="{{cartlist}}" wx:key="{{index}}">
+                       <image src="{{imgurl+item.image}}" mode="widthFix"></image>
+                       <view class="info">
+                              <text>{{item.name}}</text>
+                              <text class="author">￥{{item.price}} 元</text>
+                              
+                            <view class="myview"  >
+                            <image src="/images/jian.png" class="btn" bindtap="decrease" data-price="{{item.price}}" data-sname="{{item.id}}"></image>
+                            <text>{{item.num}}</text>
+                            <image src="/images/jia.png" class="btn" bindtap="increase" data-price="{{item.price}}" data-sname="{{item.id}}"></image>
+                            </view>
+                       </view>
+                </view>
+          </scroll-view>
+ </view>

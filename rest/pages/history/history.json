@@ -1,0 +1,16 @@
+{
+  "usingComponents": {},
+  "tabBar":{
+    "list":[
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/type/type",
+        "text": "分类"
+      }
+    ],
+    "position":"top"
+  }
+}

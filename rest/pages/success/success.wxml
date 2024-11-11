@@ -1,0 +1,4 @@
+<!--pages/success/success.wxml-->
+<view>
+  下单成功！
+</view>

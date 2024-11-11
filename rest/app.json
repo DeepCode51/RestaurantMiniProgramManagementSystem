@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/type/type",
+   "pages/aboutme/aboutme",
+    "pages/history/history",
+    "pages/success/success",
+    "pages/fail/fail",
+    "pages/setting/setting"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1296db",
+    "navigationBarTitleText": "星餐厅",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/type/type",
+        "text": "分类",
+        "iconPath": "/images/type.png",
+        "selectedIconPath": "/images/type_select.png"
+      },
+      {
+        "pagePath": "pages/aboutme/aboutme",
+        "text": "我的",
+        "iconPath": "/images/me.png",
+        "selectedIconPath": "/images/me_select.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

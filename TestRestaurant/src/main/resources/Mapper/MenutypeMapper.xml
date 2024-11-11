@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.MenutypeMapper">
+    <!--罗列操作-->
+    <select id="getmenutype" resultType="com.test.obj.Menutype">
+        select * from menutype
+    </select>
+    <select id="info_list" resultType="com.test.obj.Menutype">
+        select * from menutype limit #{start},#{rows}
+    </select>
+    <select id="search_name" resultType="com.test.obj.Menutype">
+        select * from menutype where menutype like '%' #{menutype} '%'  limit #{start},#{rows}
+    </select>
+    <delete id="delete">
+        delete from menutype where id = #{id}
+    </delete>
+    <select id="search_id" resultType="com.test.obj.Menutype">
+        select * from menutype where id = #{id}
+    </select>
+    <update id="update">
+        update menutype
+        <set>
+            <if test="menutype != null and menutype != '' ">
+                menutype = #{menutype},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <insert id="insert">
+        insert into menutype(menutype)
+        values (#{menutype})
+    </insert>
+</mapper>

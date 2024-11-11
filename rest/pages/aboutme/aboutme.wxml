@@ -1,0 +1,55 @@
+<!--pages/aboutme/aboutme.wxml-->
+
+
+<view class="personal">
+      <!-- <view class="pho">
+            <image src="/images/deph.png" mode="widthFix"></image>
+      </view>
+      <view class="info">
+            <text class="name">lizze</text>
+            <text class="uid">阅读号：7C8F9E80</text>
+      </view> -->
+                 <view class="userinfo">
+                      <block wx:if="{{canIUseOpenData}}">
+                           <view class="userinfo-avatar" bindtap="bindViewTap">
+                               <open-data type="userAvatarUrl"></open-data>
+                           </view>
+                           <view class="info">
+                                <open-data type="userNickName" style="color: black;"></open-data>
+                                <text>用户编号：{{openid}}</text>
+                                <text>账户余额：{{money}}</text>
+                           </view>
+                               
+                      </block>
+                     <block wx:elif="{{!hasUserInfo}}">
+                           <button class="btn_login" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 立即登入 </button>
+                            <button class="btn_login" wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 立即登入 </button>
+                               <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+                     </block>
+                     <block wx:else>
+                             <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="widthFix">
+                             </image>
+                          <view class="info">
+                                <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+                                <text>用户编号：{{openid}}</text>
+                                <text>账户余额：{{money}}</text>
+                          </view>
+                            
+                    </block>
+                    
+</view>
+
+</view>
+
+<view class="detail">
+      <view class="list">
+           <navigator class="listapp" url="/pages/history/history">
+                    <image src="/images/history.png" mode="widthFix"></image>
+                    <text>我的订单</text>
+           </navigator>
+           <navigator class="listapp" url="/pages/setting/setting">
+                    <image src="/images/setting.png" mode="widthFix"></image>
+                    <text>设置</text>
+           </navigator>
+      </view>
+</view>

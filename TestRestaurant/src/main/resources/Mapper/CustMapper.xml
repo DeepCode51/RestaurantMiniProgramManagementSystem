@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.CustMapper">
+    <select id="getinfo" resultType="com.test.obj.customer">
+        select * from customer where openid = #{classify}
+    </select>
+    <select id="getmoney" parameterType="java.lang.String" resultType="Double">
+        select money from customer where openid = #{openid}
+    </select>
+    <select id="searchmoney" resultType="com.test.obj.customer">
+        select * from customer where openid = #{openid}
+    </select>
+    <select id="getorderinfo" resultType="com.test.obj.Order">
+        select * from `order` where openid = #{classify}
+    </select>
+    <select id="table_list" resultType="com.test.obj.Foodtable">
+        select * from `foodtable` limit #{start},#{rows}
+    </select>
+    <select id="searchtable_id" resultType="com.test.obj.Foodtable">
+        select * from foodtable where id = #{id}
+    </select>
+    <update id="update">
+        update foodtable
+        <set>
+            <if test="stat != null and stat != '' ">
+                `stat` = #{stat},
+            </if>
+            <if test="nowspeci != null and nowspeci != '' ">
+                nowspeci = #{nowspeci},
+            </if>
+            <if test="createtime != null and createtime != '' ">
+                `createtime` = #{createtime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <update id="update1">
+        update foodtable
+        <set>
+            <if test="stat != null and stat != '' ">
+                `stat` = #{stat},
+            </if>
+            <if test="speci != null and speci != '' ">
+                `speci` = #{speci},
+            </if>
+                nowspeci =0,
+                `createtime`=null
+
+        </set>
+        where id = #{id}
+    </update>
+    <!--罗列操作-->
+    <insert id="insert">
+        insert into `order`(raccount,openid,createtime,totalprice,stat)
+        values (#{raccount},#{openid},#{createtime},#{totalprice},#{stat})
+    </insert>
+
+    <select id="order_list" resultType="com.test.obj.Order">
+        select * from `order` limit #{start},#{rows}
+    </select>
+    <select id="search_order" resultType="com.test.obj.Order">
+        select * from `order` where openid like '%' #{menutype} '%'  limit #{start},#{rows}
+    </select>
+    <delete id="delete">
+        delete from `order` where id = #{id}
+    </delete>
+
+    <update id="updateorder">
+        update `order`
+        <set>
+            <if test="stat != null and stat != '' ">
+                `stat` = #{stat},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <update id="updatecut">
+        update customer
+        <set>
+         money=#{money}
+        </set>
+        where openid = #{openid}
+    </update>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.AdminMapper">
+    <!--登录-->
+    <select id="login" resultType="com.test.obj.Admin">
+        select * from admin where account = #{account} and password=#{password}
+    </select>
+    <!--罗列操作-->
+    <select id="admin_list" resultType="com.test.obj.Admin">
+        select * from admin limit #{start},#{rows}
+    </select>
+    <select id="search_sname" resultType="com.test.obj.Admin">
+        select * from admin where account like '%' #{account} '%' limit #{start},#{rows}
+    </select>
+    <delete id="delete">
+        delete from admin where id = #{id}
+    </delete>
+    <select id="search_id" resultType="com.test.obj.Admin">
+        select * from admin where id = #{id}
+    </select>
+    <update id="update">
+        update admin
+        <set>
+            <if test="account != null and account != '' ">
+                account = #{account},
+            </if>
+            <if test="password != null and password != ''">
+                `password` = #{password},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <insert id="insert">
+        insert into admin(account,password) values (#{account},#{password})
+    </insert>
+</mapper>

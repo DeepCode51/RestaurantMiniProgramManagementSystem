@@ -1,0 +1,4 @@
+<!--pages/setting/setting.wxml-->
+<view class="none">
+   <text class="none1">任何技术问题详情咨询客服：400-999-888</text>
+</view>

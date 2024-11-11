@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.StaffMapper">
+    <!--罗列操作-->
+    <select id="staff_list" resultType="com.test.obj.Staff">
+        select * from staff where raccount=#{raccount} limit #{start},#{rows}
+    </select>
+    <select id="staff_search" resultType="com.test.obj.Staff">
+        select * from staff where saccount like '%' #{saccount} '%' and raccount=#{raccount} limit #{start},#{rows}
+    </select>
+    <select id="search_depart" resultType="com.test.obj.Staff">
+        select * from staff where sdepart = #{classify} limit #{start},#{rows}
+    </select>
+    <delete id="delete">
+        delete from staff where id = #{id}
+    </delete>
+    <select id="search_id" resultType="com.test.obj.Staff">
+        select * from staff where id = #{id}
+    </select>
+    <update id="update">
+        update staff
+        <set>
+            <if test="saccount != null and saccount != ''">
+                `saccount` = #{saccount},
+            </if>
+            <if test="sdepart != null and sdepart != '' ">
+                sdepart = #{sdepart},
+            </if>
+            <if test="sname != null and sname != ''">
+                sname = #{sname},
+            </if>
+            <if test="stel != null and stel != '' ">
+                stel = #{stel},
+            </if>
+            <if test="slevel != null and slevel != ''">
+                slevel = #{slevel},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <insert id="insert">
+        insert into staff(saccount,raccount,sdepart,sname,slevel,stel)
+        values (#{saccount},#{raccount},#{sdepart},#{sname},#{slevel},#{stel})
+    </insert>
+</mapper>

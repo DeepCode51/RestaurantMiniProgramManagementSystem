@@ -1,0 +1,14 @@
+/* pages/setting/setting.wxss */
+.none{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 35rpx;
+}
+.none1{
+  margin: 10% 0;
+}
